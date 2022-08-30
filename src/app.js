@@ -28,5 +28,6 @@ app.use('/', require(path.join(__dirname, 'routes', 'index.routes')));
 app.use('/api/courses', require(path.join(__dirname, 'routes', 'courses.routes')));
 app.use('/api/topics', require(path.join(__dirname, 'routes', 'topics.routes')));
 app.use('/api/auth', require(path.join(__dirname, 'routes', 'auth.routes')));
+app.use('/api/user', require(path.join(__dirname, 'routes', 'user.routes')));
 
 module.exports = app;

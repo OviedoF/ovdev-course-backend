@@ -15,10 +15,7 @@ const userSchema = new Schema({
         required: true,
         unique: true
     },
-    coursesInProcess: [{
-        ref: 'Course',
-        type: Schema.Types.ObjectId
-    }],
+    coursesInProcess: Array,
     coursesProgress: [{
         course: String,
         quantityOfTopics: Number,
