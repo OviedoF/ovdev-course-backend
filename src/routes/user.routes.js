@@ -6,6 +6,12 @@ const verifySignUp = require(path.join(__dirname, '..', 'middlewares', 'verifySi
 
 router.post('/:id/addCourse', userController.addCourseInProcess);
 
-router.get('/:id/getCoursesInProcess', userController.getCoursesInProcess)
+router.get('/:id/getCoursesInProcess', userController.getCoursesInProcess);
+
+router.post('/:id/handlefav/:topicId', userController.handleFavorite);
+
+router.get('/:id/getfavs', userController.getFavs);
+
+router.get('/:id/getfavs/complete', userController.getCompleteFavs);
 
 module.exports = router;

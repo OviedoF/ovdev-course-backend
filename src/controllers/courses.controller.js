@@ -6,7 +6,7 @@ const coursesController = {};
 
 coursesController.getCourses = async (req, res) => {
     try {
-        const allCourses = await Course.find();
+        const allCourses = await Course.find().populate('topics');
 
         res.status(200).send(allCourses);
     } catch (error) {
@@ -50,7 +50,7 @@ coursesController.postCourse = async (req, res) => {
         res.status(200).send(courseSaved);
 
     } catch (error) {
-        fs.unlink(req.files[0].path);
+        await fs.unlink(req.files[0].path);
         console.log(error);
         res.status(500).send(error);
     }

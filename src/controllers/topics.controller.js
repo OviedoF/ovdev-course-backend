@@ -99,4 +99,31 @@ topicsController.putTopicContent = async (req, res) => {
     }
 }
 
+topicsController.deleteTopic = async (req, res) => {
+    try {
+        const topic = await Topic.findById(req.params.id);
+        if(!topic) return res.status(404).send('Tópico no encontrado.');
+
+        const course = await Course.findById(topic.course);
+        const courseTopicsNow = course.topics.filter(el => el.toString() !== topic._id.toString());
+
+        const actualizedCourse = await Course.findByIdAndUpdate(course._id, {
+            topics: courseTopicsNow
+        });
+
+        if(fs.existsSync(`src/markdown/${course.dirname}/${topic.filename}.md`)){
+            fs.unlink(`src/markdown/${course.dirname}/${topic.filename}.md`, (err) => {
+                if(err) return res.status(500).send('No se ha podido borrar las dependencias correspondientes.');
+            })
+        };
+
+        const deletedTopic = await Topic.findByIdAndDelete(req.params.id);
+
+        res.send('borrao');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
+
 module.exports = topicsController;

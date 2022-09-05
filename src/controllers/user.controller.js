@@ -57,4 +57,65 @@ usersController.getCoursesInProcess = async (req, res) => {
         res.status(500).send(error);
     }
 }
+
+usersController.handleFavorite = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id).populate('favs');
+        const topic = await Topic.findById(req.params.topicId);
+
+        const newFavs = [topic._id];
+
+        user.favs.forEach(el => {
+            newFavs.push(el._id);
+
+            if(el._id.toString() == topic._id.toString()){
+                newFavs.pop();
+                newFavs.shift();
+            }
+        });
+
+        await User.findByIdAndUpdate(req.params.id, {
+            favs: newFavs
+        })
+
+        res.status(200).send('#EF3969');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
+
+usersController.getFavs = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id, {favs: true});
+
+        res.status(200).send(user);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
+
+
+usersController.getCompleteFavs = async (req, res) => {
+    try {
+        const favsFromDB = await User.findById(req.params.id, {favs: true}).populate('favs');
+
+        const favsComplete = [];
+
+        for (const fav of favsFromDB.favs) {
+            const course = await Course.findById(fav.course);
+            favsComplete.push({
+                ...fav._doc,
+                course: course
+            })            
+        };
+
+        console.log(favsComplete);
+        res.status(200).send(favsComplete);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
 module.exports = usersController;

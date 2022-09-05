@@ -22,7 +22,7 @@ const userSchema = new Schema({
         topicsCompleted: Number
     }],
     favs: [{
-        ref: 'Course',
+        ref: 'Topic',
         type: Schema.Types.ObjectId
     }],
     roles: [{
