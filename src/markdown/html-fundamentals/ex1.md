@@ -13,9 +13,8 @@ Lo importante de este ejercicio es usar bien los contenedores, reconocer el head
 
 ![index page 2](https://res.cloudinary.com/dnej4lrcz/image/upload/v1662756956/ovdevcourse/html%20fundamentos/ex1/2_jxcyls.png)
 
-Link de la imágen correspondiente: 
-"https://res.cloudinary.com/dnej4lrcz/image/upload/v1662756957/ovdevcourse/html%20fundamentos/ex1
-/imagenfrente_fq3tjy.jpg"
+Imágen correspondiente: 
+![imágen ejercicio 1](https://res.cloudinary.com/dnej4lrcz/image/upload/v1662756957/ovdevcourse/html%20fundamentos/ex1/imagenfrente_fq3tjy.jpg)
 
 ## contacto.html
 ---

@@ -55,7 +55,9 @@ topicsController.postTopic = async (req, res) => {
         const urlMarkdownFile = `src/markdown/${courseFinded.dirname}/${req.body.filename}.md`;
 
         if(!fs.existsSync(urlMarkdownFile)){
-            fs.writeFileSync(urlMarkdownFile, 'contenido');
+            fs.writeFileSync(urlMarkdownFile, `No disponible todavia! 
+
+![gatito trabajando](https://c.tenor.com/t3yHhG6m4YkAAAAM/cat-work.gif)`);
         };
 
         const newTopic = new Topic({

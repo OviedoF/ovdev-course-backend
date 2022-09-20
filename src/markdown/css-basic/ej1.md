@@ -1,3 +1,3 @@
-No disponible todavía! :(
+El primer ejercicio será mejorar el ejercicio anterior en HTML que hicimos (CatShop) y agregarle un poco de estilo. El resultado final debería quedar así:
 
-![gatito trabajando](https://c.tenor.com/t3yHhG6m4YkAAAAM/cat-work.gif)
+[ver página](https://oviedof.github.io/Z-ejercicios-ovdev-course/css_basico_ejercicio1.html)
