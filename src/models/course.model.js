@@ -28,7 +28,8 @@ const courseSchema = new Schema({
     topics: [{
         ref: 'Topic',
         type: Schema.Types.ObjectId
-    }]
+    }],
+    onlyAdmin: Boolean
 }, {
     timestamps: true
 });
